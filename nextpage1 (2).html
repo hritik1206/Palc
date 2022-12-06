@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title style="color:rgb(255, 136, 0)">MINI PROJECT</title>
+
+<style>
+body{
+  background-color:#DDBEA9;  
+  border:3px solid rgb(139, 56, 0);
+    border-radius:20px;
+    margin:50px 200px;
+    animation-name:myfamily;
+    animation-duration:10s;
+   
+}
+h3{
+ color:palevioletred;
+}
+h2{
+        color:paleturquoise;
+    }
+    table,th{
+    color:cadetblue;
+    border: 1px solid plum;
+    margin:10px;
+    text-align: left;
+    padding: 20px;
+    }
+    td{
+        
+        margin:50px  150px ;
+        padding:20px;
+        }
+        #result
+        {
+        width:250px;
+        height:150px;
+        }
+        @keyframes myfamily
+      
+        {
+          0%{background-color:#B56576}
+          25%{background-color:#CB997E}
+          50%{background-color:#354F52}
+          75%{background-color:#DDBEA9}
+          100%{background-color:#B7B7A4}
+        }
+    </style>
+
+    <script>
+      function run() {
+        // Creating Our XMLHttpRequest object
+        var xhr = new XMLHttpRequest();
+      
+      // Making our connection  
+        var url = 'http://127.0.0.1:8080';
+      xhr.open("GET", url, true);
+     
+     // function execute after request is successful
+     xhr.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
+      document.getElementById('result').value=this.responseText;
+      }
+      }
+      // Sending our request
+      xhr.send();
+    }
+    run();
+    </script>
+
+<body>
+<center><h3>IP ROUTE TELEMETRY EXPORTER</h3>
+<hr >
+
+    <form >
+    
+<h2>ROUTE INFORMATION</h2>
+<hr>
+<table>
+<tr>
+<th>IP ROUTE</th>
+<th>NEXTHOP</th>
+</tr>
+<tr>
+    
+<td colspan="2"> <textarea rows="5" columns="100" height="100px" width="200px" name="result"
+    id="result"
+    class="form-control"
+    rows="3"
+    placeholder="Results Is Display Here..."
+  ></textarea></td>
+
+</tr>
+</table>
+</center>
+</form>
+</body>
+</head>
+</html>
